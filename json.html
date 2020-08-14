@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @media screen {
+
+    }
+  </style>
+  <script type="text/javascript">
+  let index = 0
+
+  function stringify_1() {
+    console.log('stringify_1')
+    const input = document.getElementById('input');
+    try {
+      const j = JSON.parse(input.value)
+      console.log(j)
+      input.value = JSON.stringify(j)
+      // document.getElementById('input').setAttribute('value', JSON.stringify(j));
+    } catch (e) {
+      console.log(e)
+      index += 1
+      document.getElementById("info").innerText = `${index} 格式化失败：${e}`
+    }
+  }
+
+  function stringify_s4() {
+    console.log('stringify_1')
+    const input = document.getElementById('input');
+    try {
+      const j = JSON.parse(input.value)
+      console.log(j)
+      input.value = JSON.stringify(j, null, 4)
+      // document.getElementById('input').setAttribute('value', JSON.stringify(j));
+    } catch (e) {
+      console.log(e)
+      index += 1
+      document.getElementById("info").innerText = `${index} 格式化失败：${e}`
+    }
+  }
+  </script>
+</head>
+<body>
+<span>JSON格式化</span>
+<div>
+  <button onclick="stringify_1()">一行</button>
+  <button onclick="stringify_s4()">4空格</button>
+</div>
+<div>
+  <span id="info">信息显示</span>
+</div>
+<textarea id="input" style="width: 90vw;height: 30vw;text-align: start"></textarea>
+</body>
+</html>
